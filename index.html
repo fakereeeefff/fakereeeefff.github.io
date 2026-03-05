@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>方浩哲 · 个人主页</title>
+  <!-- 字体与图标库 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* 全局样式 */
     * {
       margin: 0;
       padding: 0;
@@ -13,209 +15,284 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: #f9fafc;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(145deg, #f0f4ff 0%, #f9fafc 100%);
       color: #1e293b;
       line-height: 1.6;
-      padding: 2rem;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .container {
-      max-width: 800px;
+      max-width: 900px;
+      width: 100%;
       margin: 0 auto;
-      background: white;
-      border-radius: 24px;
-      box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.1);
-      padding: 2.5rem;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 32px;
+      box-shadow: 0 30px 50px -20px rgba(0, 20, 50, 0.25);
+      padding: 2.8rem 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.5);
     }
 
     /* 头像 */
     .avatar {
       display: block;
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       object-fit: cover;
       margin: 0 auto 1.5rem;
       border: 4px solid white;
-      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 15px 25px -8px rgba(0, 35, 80, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .avatar:hover {
+      transform: scale(1.02);
     }
 
-    /* 姓名与标题 */
+    /* 姓名与学校 */
     .name {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       font-weight: 700;
       text-align: center;
       letter-spacing: -0.02em;
-      margin-bottom: 0.25rem;
+      background: linear-gradient(135deg, #1e2b4f, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.15rem;
     }
 
-    .bio {
+    .school {
       text-align: center;
       font-size: 1.2rem;
       color: #475569;
       margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .school i {
+      color: #3b82f6;
+      font-size: 1.1rem;
     }
 
-    /* 社交链接区域 */
+    /* 社交链接 */
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.8rem;
       margin-bottom: 2.5rem;
     }
-
     .social-links a {
-      color: #64748b;
-      font-size: 1.6rem;
-      transition: color 0.2s ease;
+      color: #5f6c84;
+      font-size: 1.8rem;
+      transition: all 0.25s;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 6px 12px -6px rgba(0,0,0,0.1);
+      text-decoration: none;
     }
-
     .social-links a:hover {
-      color: #3b82f6;
+      color: #2563eb;
+      transform: translateY(-4px);
+      box-shadow: 0 14px 20px -8px #3b82f680;
     }
 
-    /* 分割线 */
+    /* 分割装饰 */
     .divider {
-      width: 60px;
-      height: 4px;
-      background: #e2e8f0;
-      border-radius: 2px;
+      width: 70px;
+      height: 5px;
+      background: linear-gradient(to right, #a5c9ff, #3b82f6);
+      border-radius: 10px;
       margin: 2rem auto;
     }
 
     /* 章节标题 */
     .section-title {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       font-weight: 600;
-      margin-bottom: 1.5rem;
-      color: #0f172a;
+      margin-bottom: 1.8rem;
+      color: #0b1e3a;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.7rem;
     }
-
     .section-title i {
       color: #3b82f6;
+      background: #e0edff;
+      padding: 10px;
+      border-radius: 14px;
+      font-size: 1.3rem;
     }
 
-    /* 关于段落 */
+    /* 关于我 */
     .about-text {
-      color: #334155;
-      margin-bottom: 2rem;
-      font-size: 1.05rem;
+      color: #2a3a5e;
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+      background: #f0f7ff;
+      padding: 1.6rem 2rem;
+      border-radius: 28px;
+      border: 1px solid rgba(59,130,246,0.15);
+      box-shadow: inset 0 2px 4px rgba(255,255,255,0.8);
+      line-height: 1.7;
     }
 
-    /* 项目卡片网格 */
-    .projects {
+    /* 技能网格 */
+    .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0 1.5rem;
+    }
+    .skill-item {
+      background: white;
+      padding: 1rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 4px 10px -5px rgba(0,0,0,0.05);
+      border: 1px solid #e2edff;
+      transition: 0.15s;
+      color: #19345e;
+    }
+    .skill-item i {
+      color: #3b82f6;
+      font-size: 1.3rem;
+      width: 26px;
+    }
+    .skill-item:hover {
+      border-color: #3b82f6;
+      background: #f5faff;
+      transform: translateY(-2px);
     }
 
-    .project-card {
-      background: #f8fafc;
-      border-radius: 16px;
-      padding: 1.5rem;
-      transition: all 0.2s ease;
-      border: 1px solid #eef2f6;
+    /* 学习卡片 (替代项目) */
+    .learning-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0;
     }
-
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.2);
-      border-color: #b9d5ff;
+    .learning-card {
+      background: white;
+      border-radius: 26px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 15px 30px -18px #1e293b;
+      border: 1px solid #d9e9ff;
+      transition: 0.25s;
+      text-align: center;
     }
-
-    .project-title {
-      font-weight: 600;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: #0f172a;
+    .learning-card:hover {
+      transform: translateY(-6px);
+      border-color: #3b82f6;
+      box-shadow: 0 22px 30px -18px #3b82f6;
     }
-
-    .project-desc {
-      color: #475569;
-      font-size: 0.95rem;
+    .learning-icon {
+      font-size: 2.5rem;
+      color: #2563eb;
       margin-bottom: 1rem;
     }
-
-    .project-link {
-      color: #3b82f6;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
+    .learning-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #122b4e;
     }
-
-    .project-link:hover {
-      text-decoration: underline;
+    .learning-desc {
+      color: #4a5b79;
+      font-size: 0.95rem;
     }
 
     /* 脚注 */
     .footer {
       text-align: center;
-      color: #94a3b8;
+      color: #6f7d98;
       font-size: 0.9rem;
-      margin-top: 2.5rem;
-      border-top: 1px solid #eef2f6;
+      margin-top: 3rem;
+      border-top: 1px dashed #b9d6ff;
       padding-top: 2rem;
     }
-
-    /* 简单的图标库 (使用 Font Awesome) */
-    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+    .footer i {
+      color: #ef4444;
+      font-size: 0.8rem;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- 头像 (请替换为自己的图片链接) -->
-    <img class="avatar" src="https://via.placeholder.com/120" alt="头像">
+    <!-- 头像 (替换为你自己的图片链接) -->
+    <img class="avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=FangHaozhe" alt="方浩哲头像">
 
     <!-- 姓名与简介 -->
     <h1 class="name">方浩哲</h1>
-    <div class="bio">海南大学</div>
+    <div class="school">
+      <i class="fas fa-university"></i> 海南大学 · 计算机科学与技术 大二
+    </div>
 
-    <!-- 社交链接 (替换为你的个人链接) -->
+    <!-- 社交链接 (请替换为你的真实链接) -->
     <div class="social-links">
       <a href="https://github.com/你的用户名" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://twitter.com/你的用户名" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
       <a href="https://linkedin.com/in/你的用户名" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:你的邮箱@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="mailto:fanghaozhe@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
     </div>
 
     <div class="divider"></div>
 
     <!-- 关于我部分 -->
-    <h2 class="section-title"><i class="fas fa-user"></i> 关于我</h2>
+    <h2 class="section-title"><i class="fas fa-smile"></i> 关于我</h2>
     <p class="about-text">
-      你好！我是方浩哲，一名海南大学学生。我享受将想法转化为简洁、高效的代码。目前专注于Web开发与开源工具。业余时间喜欢健身。
+      你好！我是浩哲，目前在海南大学攻读计算机专业。热爱探索前端技术、算法与用户体验设计。课余时间喜欢健身、听播客，也偶尔写点技术笔记。我相信好的代码不仅能解决问题，更能传递温度。✨
     </p>
 
-    <!-- 精选项目展示 -->
-    <h2 class="section-title"><i class="fas fa-code-branch"></i> 精选项目</h2>
-    <div class="projects">
-      <div class="project-card">
-        <div class="project-title">项目名称 A</div>
-        <div class="project-desc">一个简洁的待办事项应用，使用React和LocalStorage实现，支持深色模式。</div>
-        <a href="#" class="project-link">查看项目 <i class="fas fa-arrow-right"></i></a>
+    <!-- 技能与兴趣（替代项目） -->
+    <h2 class="section-title"><i class="fas fa-code"></i> 技能与兴趣</h2>
+    <div class="skills-grid">
+      <div class="skill-item"><i class="fab fa-html5"></i> HTML5 & CSS3</div>
+      <div class="skill-item"><i class="fab fa-js"></i> JavaScript (基础)</div>
+      <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+      <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
+      <div class="skill-item"><i class="fas fa-paint-brush"></i> UI设计初步</div>
+      <div class="skill-item"><i class="fas fa-robot"></i> 机器学习入门</div>
+    </div>
+
+    <!-- 正在学习 / 近期目标（替代项目） -->
+    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> 正在学习</h2>
+    <div class="learning-cards">
+      <div class="learning-card">
+        <div class="learning-icon"><i class="fab fa-react"></i></div>
+        <div class="learning-title">React 基础</div>
+        <div class="learning-desc">学习组件化思想与Hooks，尝试搭建个人博客。</div>
       </div>
-      <div class="project-card">
-        <div class="project-title">项目名称 B</div>
-        <div class="project-desc">基于Python Flask的天气查询API，集成第三方天气数据，提供JSON接口。</div>
-        <a href="#" class="project-link">查看项目 <i class="fas fa-arrow-right"></i></a>
+      <div class="learning-card">
+        <div class="learning-icon"><i class="fas fa-cloud-sun"></i></div>
+        <div class="learning-title">微信小程序</div>
+        <div class="learning-desc">计划开发一个海大校园导览小程序。</div>
       </div>
-      <div class="project-card">
-        <div class="project-title">项目名称 C</div>
-        <div class="project-desc">个人博客主题Jekyll，极简设计，专注于阅读体验。</div>
-        <a href="#" class="project-link">查看项目 <i class="fas fa-arrow-right"></i></a>
+      <div class="learning-card">
+        <div class="learning-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="learning-title">数据分析</div>
+        <div class="learning-desc">Pandas + 可视化，参加学校创新项目。</div>
       </div>
     </div>
 
     <div class="footer">
-      © 2025 你的名字 · 由 GitHub Pages 驱动
+      © 2025 方浩哲 · 由 GitHub Pages 驱动 · <i class="fas fa-heart"></i> 保持好奇
     </div>
   </div>
 </body>
